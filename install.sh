@@ -64,8 +64,10 @@ mkdir -p "$TARGET_HOME/.local/share/fonts"
 cp -r fonts/fonts/* "$TARGET_HOME/.local/share/fonts/"
 fc-cache -f
 
-chmod +x "$CONFIG_DIR/bspwm/bspwmrc" || true
-chmod +x "$CONFIG_DIR/polybar/launch.sh" || true
+echo "[*] Setting executable permissions for helper scripts..."
+chmod +x "$CONFIG_DIR/polybar/launch.sh" 2>/dev/null || true
+find "$CONFIG_DIR/polybar/scripts" -type f -maxdepth 1 -exec chmod +x {} \; 2>/dev/null || true
+find "$CONFIG_DIR/bspwm/scripts" -type f -maxdepth 1 -exec chmod +x {} \; 2>/dev/null || true
 chown -R "$TARGET_USER":"$TARGET_USER" \
   "$CONFIG_DIR" \
   "$TARGET_HOME/.zshrc" \
