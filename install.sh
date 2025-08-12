@@ -68,12 +68,15 @@ echo "[*] Setting executable permissions for helper scripts..."
 chmod +x "$CONFIG_DIR/polybar/launch.sh" 2>/dev/null || true
 find "$CONFIG_DIR/polybar/scripts" -type f -maxdepth 1 -exec chmod +x {} \; 2>/dev/null || true
 find "$CONFIG_DIR/bspwm/scripts" -type f -maxdepth 1 -exec chmod +x {} \; 2>/dev/null || true
+chmod +x "$CONFIG_DIR/bspwm/bspwmrc" || true
+chmod +x "$CONFIG_DIR/polybar/launch.sh" || true
+
 chown -R "$TARGET_USER":"$TARGET_USER" \
   "$CONFIG_DIR" \
   "$TARGET_HOME/.zshrc" \
   "$TARGET_HOME/.p10k.zsh" \
   "$TARGET_HOME/.local/share/fonts" \
-  "$TARGET_HOME/powerlevel10k"
+  "$TARGET_HOME/.powerlevel10k"
 
 echo "[✔] Installation completed successfully."
 echo "Log out, select BSPWM as your session, and log back in."
