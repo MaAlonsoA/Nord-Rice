@@ -42,7 +42,7 @@ sudo cp p10k.zsh.root /root/.p10k.zsh
 
 if [[ ! -d "$TARGET_HOME/powerlevel10k" ]]; then
   echo "[*] Cloning Powerlevel10k into $TARGET_HOME/powerlevel10k ..."
-  sudo -u "$TARGET_USER" git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$TARGET_HOME/powerlevel10k"
+  sudo -u "$TARGET_USER" git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$TARGET_HOME/.powerlevel10k"
 fi
 
 echo "[*] Installing zsh-sudo plugin into /usr/share/zsh-sudo ..."
